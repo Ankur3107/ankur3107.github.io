@@ -58,7 +58,7 @@ plugins:
 author:
   name   : "Ankur Kumar"
   avatar : "/assets/images/ankur_pic.jpg"
-  bio    : "I am a DATA SCIENTIST at Aditya Birla Group, Data Analytic Cell, Bangalore. A problem solver at heart, and strive to deliver creative and effective solutions at the highest of standards."
+  bio    : "I am a DATA SCIENTIST @AdityaBirlaGroup. A problem solver at heart, and strive to deliver creative and effective solutions at the highest of standards."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
