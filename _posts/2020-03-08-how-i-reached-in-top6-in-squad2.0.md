@@ -48,6 +48,37 @@ tags:
 
 *   Training Strategy:
 
+    For training tuned albert, i used below strategy:
+
+        1.  Learning Rate Decay based Training
+        2.  Tuned Loss function after some epochs
+        3.  Dataset Ratio Tuning(Answerable/ Unanswerable)
+
+*   Ensembling Strategy:
+
+    For ensembling, i used bagging technique and taken mean probabilty of two models:
+
+        1.  Model 1 - with full dataset
+        2.  Model 2 – Model 1 + Additional Dataset of specific Class
+
+*   Computation:
+
+    For training tuned albert, it took 100h+ DGX-GPU(2 V100) computation.
+
+
+## For Submission
+
+1.  Upload Model+Code on Codalab
+2.  Made Docker image for my requirement
+3.  Run Tuned Albert for Dev data using Docker image+Model+Code
+4.  Submit the final image link.
+
+
+### Special Thanks for help and support
+
+1.  Naveen Xavier:  https://in.linkedin.com/in/naveenxavier
+2.  Arun Raghuraman:    https://in.linkedin.com/in/arun-raghuraman-50a20b60
+3.  Shruti Mittal:  https://in.linkedin.com/in/shruti-mittal
     
 
 
