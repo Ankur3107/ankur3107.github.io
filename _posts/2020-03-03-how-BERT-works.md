@@ -22,6 +22,7 @@ outputs of all heads in the same layer are combined
 and run through a fully-connected layer. Each layer
 is wrapped with a skip connection and layer normalization is applied after it.
 
+<script data-ad-client="ca-pub-2118670497450280" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 ## BERT embeddings
 
@@ -30,6 +31,8 @@ embeddings occupy a narrow cone in the vector
 space, and this effect increases from lower to higher
 layers. That is, two random words will on average have a much higher cosine similarity than expected if embeddings were directionally uniform
 (isotropic).
+
+<script data-ad-client="ca-pub-2118670497450280" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 ## Syntactic knowledge
 
@@ -52,6 +55,7 @@ detect the presence of NPIs (e.g. ”ever”) and the
 words that allow their use (e.g. ”whether”) than
 scope violations.
 
+<script data-ad-client="ca-pub-2118670497450280" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 ##  Semantic knowledge
 
@@ -112,3 +116,5 @@ information
 
 
 ****Checkout the [Offical Paper](https://arxiv.org/pdf/2002.12327v1.pdf) ***
+
+<script data-ad-client="ca-pub-2118670497450280" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
