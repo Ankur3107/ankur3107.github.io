@@ -28,18 +28,20 @@ tags:
 
 ## Strategy
 
+Now I am going to explain step by step, how I approached SQuAD2.0:
+
 *   Data Pre-Processing:
 
-    Data pre-processing was the most time consuming process and it taken around 6-8h of computation time. It includes:
+    Data pre-processing was the most time-consuming process and it took around 6-8h of computation time. The process was as followed:
 
-            1. Text Cleaning
-            2. Tokenization (Sentencepiece)
-            3. Data-format prepration for model input
-            4. Serialization into TFRecords
+        1. Text Cleaning
+        2. Tokenization (Sentencepiece)
+        3. Data-format prepration for model input
+        4. Serialization into TFRecords
 
 * Tuned Albert:
 
-    Tuned Abert model Architecture build using albert transformer network. 
+    Tuned Abert model Architecture built on Albert transformer network. 
 
         1.  Base Network - Transformer
         2.  Albert Architecture (Multi Headed Self Attention)
@@ -48,7 +50,7 @@ tags:
 
 *   Training Strategy:
 
-    For training tuned albert, i used below strategy:
+    For training tuned Albert, used below strategies:
 
         1.  Learning Rate Decay based Training
         2.  Tuned Loss function after some epochs
@@ -56,7 +58,7 @@ tags:
 
 *   Ensembling Strategy:
 
-    For ensembling, i used bagging technique and taken mean probabilty of two models:
+    For ensembling, used bagging technique and took the mean probability of two models:
 
         1.  Model 1 - with full dataset
         2.  Model 2 – Model 1 + Additional Dataset of specific Class
@@ -71,7 +73,7 @@ tags:
 1.  Upload Model+Code on Codalab
 2.  Made Docker image for my requirement
 3.  Run Tuned Albert for Dev data using Docker image+Model+Code
-4.  Submit the final image link.
+4.  Submitted the final image link.
 
 
 ### Special Thanks for help and support
