@@ -13,9 +13,9 @@ tags:
 
 **June'17:** Started my professional life as Developer and Data Analyst. 
 
-**June'17-Dec'17:** Done Research on Language Understanding. And solved Facebook babi 20 QA Task with 100% Accuracy. We was the first in the world who solved with 0% error. My Role was in making Language Understanding System along with QA Solver.
+**June'17-Dec'17:** Done Research on Language Understanding. And solved Facebook babi 20 QA Task with 100% Accuracy. We were the first in the world who solved with 0% error. My Role was to make Language Understanding System along with QA Solver.
 
-**Jan'18-Feb'18:** Taken part in Kaggle Mercari Price Suggestion Challenge and got rank in top 7% (2300+Participants).
+**Jan'18-Feb'18:** Participated in Kaggle Mercari Price Suggestion Challenge and got rank in top 7% (2300+Participants).
 
 **Jan'18-June'18:** Made Session-Based Conversational ChatBot. It first try to understand question/query and then a graph based solver which try to give answer using understood intermediate query.
 
