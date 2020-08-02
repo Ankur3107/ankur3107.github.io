@@ -111,3 +111,8 @@ https://arxiv.org/pdf/1908.08681.pdf
 Rectified Activations: https://arxiv.org/pdf/1505.00853.pdf
 
 Sparsemax: https://arxiv.org/pdf/1602.02068.pdf
+
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=7541383&style=0032&nbdigits=5&type=page&initCount=0" title="Web Counter" Alt="counter free"   border="0" >
+</a>
