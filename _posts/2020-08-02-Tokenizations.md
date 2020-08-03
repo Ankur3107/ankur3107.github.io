@@ -14,11 +14,11 @@ toc_icon: "cog"
 
 ![Cover Page](https://course.spacy.io/pipeline.png)
 
-## Introduction
+# Introduction
 
 This weekend,I had been thinking about how can I optimize tokenization processing time. I have 6 Core CPUs Laptop. I wanted to utilize it.
 
-### What is Tokenization?
+# What is Tokenization?
 
 ![Tokenization](https://blog.floydhub.com/content/images/2020/02/tokenize.png)
 
@@ -34,7 +34,7 @@ There are two types of tokenizations:
 `Disclaimer:` Here we discuss how we can process word tokenization faster.
 
 
-### Experiment with Code
+## Experiment with Code
 
 Let's load required packages first:
 
@@ -61,7 +61,7 @@ def multi_thread_based_tokenizations(nlp, text_list, batch_size=1000, n_threads=
         word_sequences.append(word_seq)
     return word_sequences
 ```
-##### Time Statistics 
+### Time Statistics: Multi-threaded approach
 
 I took *10000 sentences* and ran experiments with a combination of batch_size, threads, process(CPU). These are the stats:
 
@@ -111,7 +111,7 @@ class TokenizeProcessor():
 
 ```
 
-##### Time Statistics
+### Time Statistics: Multi-processing approach
 
 I took *10000 sentences* and ran experiments with a combination of batch_size, process(CPU). These are the stats:
 
@@ -132,7 +132,7 @@ batch_size|n_process|Time(s)
 1000|4|9.837863
 1000|2|9.938355
 
-## Observation
+# Observation
 
 - Multiprocessing with *concurrent.futures* gave the best result, took 3.4sec per 10000 sentences.
 - Multithreading with Spacy also gave better results as compared to the native approach, when I increased processes(CPUs), it took 17.7sec per 10000 sentences.

@@ -14,7 +14,7 @@ toc_icon: "cog"
 
 ![Cover Page](/assets/images/bertology.png)
 
-## Overview of BERT architecture
+# Overview of BERT architecture
 
 Fundamentally, BERT is a stack of Transformer
 encoder layers (Vaswani et al., 2017) which consist
@@ -28,7 +28,7 @@ is wrapped with a skip connection and layer normalization is applied after it.
 
 <script data-ad-client="ca-pub-2118670497450280" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-## BERT embeddings
+# BERT embeddings
 
   1.  BERT
 embeddings occupy a narrow cone in the vector
@@ -38,7 +38,7 @@ layers. That is, two random words will on average have a much higher cosine simi
 
 <script data-ad-client="ca-pub-2118670497450280" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-## Syntactic knowledge
+# Syntactic knowledge
 
   1.  BERT representations are hierarchical rather than linear
   2.  BERT embeddings encode information about parts of speech, syntactic chunks
@@ -61,7 +61,7 @@ scope violations.
 
 <script data-ad-client="ca-pub-2118670497450280" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-##  Semantic knowledge
+#  Semantic knowledge
 
   1.  BERT encodes information about entity types, relations,
 semantic roles, and proto-roles, since this information can be detected with probing classifiers.
@@ -71,7 +71,7 @@ that BERT does not form good representations for
 floating point numbers and fails to generalize away
 from the training data
 
-##   World knowledge
+#   World knowledge
 
   1.  BERT cannot reason based on its
 world knowledge. Forbes et al. (2019) show that
@@ -88,7 +88,7 @@ comes from learning stereotypical character combinations, e.g. it would predict 
 an Italian-sounding name is Italian, even when it is
 factually incorrect.
 
-##  Self-attention heads
+#  Self-attention heads
 
 ![Self-attention heads](/assets/images/attention_layer_vis.png)
 
@@ -107,7 +107,7 @@ relations, they do not necessarily contribute to
 BERT’s performance on relevant tasks.
 
 
-## BERT layers
+# BERT layers
 
 ![BERT layers](/assets/images/bert_layer.png)
 

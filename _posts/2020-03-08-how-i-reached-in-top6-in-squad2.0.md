@@ -15,7 +15,7 @@ toc_icon: "cog"
 
 ![Cover Page](/assets/images/SQuAD_Result.png)
 
-## What is SQuAD
+# What is SQuAD
 
 * Stanford Question Answering Dataset (SQuAD) is a reading comprehension dataset, consisting of questions posed by crowdworkers on a set of Wikipedia articles, where the answer to every question is a segment of text, or span, from the corresponding reading passage, or the question might be unanswerable.
 
@@ -30,7 +30,7 @@ toc_icon: "cog"
     ![Cover Page](/assets/images/datasets.png)
 
 
-## Strategy
+# Strategy
 
 Now I am going to explain step by step, how I approached SQuAD2.0:
 
@@ -72,7 +72,7 @@ Now I am going to explain step by step, how I approached SQuAD2.0:
     For training tuned albert, it took 100h+ DGX-GPU(2 V100) computation.
 
 
-## For Submission
+# For Submission
 
 1.  Upload Model+Code on Codalab
 2.  Made Docker image for my requirement
@@ -80,7 +80,7 @@ Now I am going to explain step by step, how I approached SQuAD2.0:
 4.  Submitted the final image link.
 
 
-## Special Thanks for help and support
+# Special Thanks for help and support
 
 1.  Naveen Xavier:  https://in.linkedin.com/in/naveenxavier
 2.  Arun Raghuraman:    https://in.linkedin.com/in/arun-raghuraman-50a20b60
