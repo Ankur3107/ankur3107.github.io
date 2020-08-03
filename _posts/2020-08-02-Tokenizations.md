@@ -1,5 +1,5 @@
 ---
-title: "Spacy: Speedy Up Tokenization Process"
+title: "Spacy: Speeding Up Tokenization Processing Time"
 last_modified_at: 2020-08-02T07:30:02-05:00
 categories:
   - Blogs
@@ -8,11 +8,11 @@ tags:
   - Tokenization
 ---
 
-![Cover Page](https://spacy.io/pipeline-7a14d4edd18f3edfee8f34393bff2992.svg)
+![Cover Page](https://course.spacy.io/pipeline.png)
 
 ## Introduction
 
-This weekend,I had been thinking that how can I optimize my nlp tokenization process time. I have 6 Core CPU Laptop. I wanted to utilize it.
+This weekend,I had been thinking about how can I optimize tokenization processing time. I have 6 Core CPUs Laptop. I wanted to utilize it.
 
 ### What is Tokenization?
 
@@ -21,10 +21,10 @@ This weekend,I had been thinking that how can I optimize my nlp tokenization pro
 
 Tokenization is the process of breaking text into pieces, called tokens. 
 
-`Explanation: `How we human understand language? We first try to *segment para into sentences* followed by *segment each sentence into words*.  After that we try to link words and make sense out it followed by link sentences to make overall sense.
+`Explanation: `How we humans understand language? We first try to *segment para into sentences* followed by *segment each sentence into words*.  After that, we try to link the words and make sense out it followed by link sentences to make overall sense.
 
-There are two type of tokenizations:
-- Sentense Tokenization
+There are two types of tokenizations:
+- Sentence Tokenization
 - Word Tokenization
 
 `Disclaimer:` Here we discuss how we can process word tokenization faster.
@@ -59,7 +59,7 @@ def multi_thread_based_tokenizations(nlp, text_list, batch_size=1000, n_threads=
 ```
 ##### Time Statistics 
 
-I took *10000 sentences* and ran experiment with combination of batch_size, threads, process(CPU). These are the stats:
+I took *10000 sentences* and ran experiments with a combination of batch_size, threads, process(CPU). These are the stats:
 
 batch_size|n_threads|n_process|Time(s)
 |---|---|---|---|
@@ -78,7 +78,7 @@ batch_size|n_threads|n_process|Time(s)
 3000|2|2|29.973307
 3500|2|2|31.415203
 
-`2. Multi-processing approach:` I have used *concurrent.futures* package to parallized tokenization code.
+`2. Multi-processing approach:` I have used *concurrent.futures* package to parallelize tokenization code.
 
 ```python
 
@@ -109,7 +109,7 @@ class TokenizeProcessor():
 
 ##### Time Statistics
 
-I took *10000 sentences* and ran experiment with combination of batch_size, process(CPU). These are the stats:
+I took *10000 sentences* and ran experiments with a combination of batch_size, process(CPU). These are the stats:
 
 batch_size|n_process|Time(s)
 |---|---|---|
@@ -130,5 +130,5 @@ batch_size|n_process|Time(s)
 
 ## Observation
 
-- Multi processing with *concurrent.futures* gave best result, took 3.4sec per 10000 sentences.
-- Multi threading with Spacy also gave better result as compared to native approach, when I increased processes(CPUs), it took 17.7sec per 10000 sentences.
+- Multiprocessing with *concurrent.futures* gave the best result, took 3.4sec per 10000 sentences.
+- Multithreading with Spacy also gave better results as compared to the native approach, when I increased processes(CPUs), it took 17.7sec per 10000 sentences.
