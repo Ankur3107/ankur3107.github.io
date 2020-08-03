@@ -5,6 +5,10 @@ categories:
   - Blogs
 tags:
   - Activation Function
+excerpt: Activation functions are mathematical equations that determine the output of a neural network.
+toc: true
+toc_label: "Contents"
+toc_icon: "cog"
 ---
 
 ![Cover Page](https://missinglink.ai/wp-content/uploads/2018/11/activationfunction-1.png)

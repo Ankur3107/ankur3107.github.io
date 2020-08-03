@@ -6,6 +6,10 @@ categories:
 tags:
   - NLP
   - Tokenization
+excerpt: Tokenization is the process of turning a meaningful piece of data, such as an account number, into a random string of characters called a token
+toc: true
+toc_label: "Contents"
+toc_icon: "cog"
 ---
 
 ![Cover Page](https://course.spacy.io/pipeline.png)

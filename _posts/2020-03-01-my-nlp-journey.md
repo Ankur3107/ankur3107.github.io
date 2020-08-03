@@ -5,6 +5,7 @@ categories:
   - Professional-Life
 tags:
   - NLP
+excerpt: Knowing is not enough; we must apply. Willing is not enough; we must do
 ---
 
 ![Cover Page](/assets/images/collage.jpg)

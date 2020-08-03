@@ -6,6 +6,10 @@ categories:
 tags:
   - NLP
   - BERT
+excerpt: BERT (Bidirectional Encoder Representations from Transformers)
+toc: true
+toc_label: "Contents"
+toc_icon: "cog"
 ---
 
 ![Cover Page](/assets/images/bertology.png)
