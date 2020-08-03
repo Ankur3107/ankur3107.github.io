@@ -118,3 +118,9 @@ comments:
     theme: "github-light" # "github-dark"
     issue_term: "pathname"
 repository: "Ankur3107/ankur3107.github.io"
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "UA-174261849-1"
+    anonymize_ip: false # default

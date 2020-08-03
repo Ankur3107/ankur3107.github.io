@@ -135,4 +135,4 @@ batch_size|n_process|Time(s)
 # Observation
 
 - Multiprocessing with *concurrent.futures* gave the best result, took 3.4sec per 10000 sentences.
-- Multithreading with Spacy also gave better results as compared to the native approach, when I increased processes(CPUs), it took 17.7sec per 10000 sentences.
+- Multithreading with Spacy also given better results as compared to the native approach, when I increased processes(CPUs), it took 17.7sec per 10000 sentences.
