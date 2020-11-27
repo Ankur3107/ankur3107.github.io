@@ -9,12 +9,13 @@ tags:
 excerpt: Network Analysis of Young People HOBBIES & INTERESTS
 ---
 
+![Cover Page](https://www.publicdiplomacycouncil.org/wp-content/uploads/2018/07/IREX-sociogram.png)
 
-```{r setup, include=FALSE}
+```r
 knitr::opts_chunk$set(echo = TRUE,message=FALSE,warning=FALSE)
 ```
 
-```{r}
+```r
 #load packages and csv file
 library(ggplot2)
 library(dplyr)
@@ -121,13 +122,13 @@ In psychometrics, we are often interested in relationships between variables e.g
 
 ### Loading Young People Survey Data
 
-```{r}
+```r
 Data <- read.csv("../input/responses.csv")
 ```
 
 ### Select HOBBIES & INTERESTS features
 
-```{r}
+```r
 Data2 <- Data[,32:63] # Select only variables
 names(Data2)
 ```
@@ -142,7 +143,7 @@ In statistics, **polychoric correlation** is a technique for estimating the corr
 
 This technique is frequently applied when analysing items on self-report instruments such as personality tests and surveys that often use rating scales with a small number of response options (e.g., strongly disagree to strongly agree). The smaller the number of response categories, the more a correlation between latent continuous variables will tend to be attenuated. Lee, Poon & Bentler (1995) have recommended a two-step approach to factor analysis for assessing the factor structure of tests involving ordinally measured items. This aims to reduce the effect of statistical artifacts, such as the number of response scales or skewness of variables leading to items grouping together in factors.
 
-```{r}
+```r
 corMat <- cor_auto(Data2) # Correlate data
 ```
 
@@ -150,26 +151,24 @@ corMat <- cor_auto(Data2) # Correlate data
 
 Use the `qgraph` package in combination with graph = "pcor".
 
-```{r}
+```r
 # Preprocessing of nodes
 names<-c("1","2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32")
 
 ```
 
-```{r fig.width=10, fig.height=6, fig.align='center',eval=T}
-
+```r
 Graph_pcor <- qgraph( corMat, graph = "pcor", layout = "spring",
                       tuning = 0.25,sampleSize = nrow(Data2), 
                       legend.cex = 0.35, vsize = 5,esize = 10,
                       posCol = "#003399", negCol = "#FF9933",vTrans = 200, nodeNames = colnames(corMat), labels = names)
-
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-6-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-6-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 The `threshold` argument can be used to remove edges that are not significant. 
 
-```{r fig.width=10, fig.height=6, fig.align='center',eval=T}
+```r
 
 Graph_pcor <- qgraph(corMat, graph = "pcor", layout = "spring", threshold = "bonferroni",
                      sampleSize = nrow(Data2), alpha = 0.05, 
@@ -180,7 +179,7 @@ Graph_pcor <- qgraph(corMat, graph = "pcor", layout = "spring", threshold = "bon
 iGraph_pcor <- as.igraph(Graph_pcor, attributes = TRUE)
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-7-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-7-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 ### Regularized partial correlation network
 
@@ -200,14 +199,14 @@ Estimate networks with the least absolute shrinkage and selection operator(lasso
 
 * Estimating a `partial correlation network` using `LASSO regularization` and `EBIC model selection` can be done by setting graph = "glasso". The  tuning argument sets the EBIC hyperparameter. Set between 0 (more connections but also more spurious connections) and 0.5 (more parsimony, but also missing more connections)
 
-```{r fig.width=10, fig.height=6, fig.align='center',eval=T}
+```r
 Graph_lasso <- qgraph(corMat, graph = "glasso", layout = "spring", tuning = 0.25,
                      sampleSize = nrow(Data2), 
                       legend.cex = 0.35, vsize = 5,esize = 10,
                       posCol = "#003399", negCol = "#FF9933",vTrans = 200, nodeNames = colnames(corMat), labels = names)
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-8-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-8-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 <hr>
 
@@ -247,13 +246,13 @@ Node strength (also called degree) sums the connected edge weights to a node.
 
 *Other possible interpretations*: In network of music collaborations, How many people has this person collaborated with?
 
-```{r fig.width=10, fig.height=5, fig.align='center',eval=T}
+```r
 centRes <- centrality(Graph_lasso)
 qplot(centRes$OutDegree, geom = "histogram") + geom_histogram(bins=10) + theme_minimal(12) +
      labs(title="Node Strength") + xlab("Strength")
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-9-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-9-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 **Closeness Centrality:**
 
@@ -261,13 +260,13 @@ Closeness centrality measures how many steps is required to access every other n
 
 *Other possible interpretations*: In network of spies, Who is the spy though whom most of the confidential information is likely to flow?
 
-```{r fig.width=10, fig.height=5, fig.align='center',eval=T}
+```r
 # Closeness:
 qplot(centRes$Closeness, geom = "histogram") + geom_histogram(bins=20) + theme_minimal(12) +
      labs(title="Closeness Centrality") + xlab("Closeness")
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-10-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-10-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 **Betweenness Centrality:**
 
@@ -275,23 +274,23 @@ The betweenness centrality for each nodes is the number of the shortest paths th
 
 *Other possible interpretations*: In network of sexual relations, How fast will an STD spread from this person to the rest of the network?
 
-```{r fig.width=10, fig.height=5, fig.align='center',eval=T}
+```r
 # Betweenness:
 
 qplot(centRes$Betweenness, geom = "histogram") + geom_histogram(bins=20) + theme_minimal(12) +
      labs(title="Betweenness Centrality") + xlab("Betweenness")
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-11-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-11-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 ### Plotting centrality indices
 
-```{r fig.width=8, fig.height=10, fig.align='center',eval=T}
+```r
 names(Data2)
 centralityPlot(Graph_lasso)
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-12-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-12-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 <hr>
 
@@ -309,10 +308,10 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
 </div>
 <hr>
 
-```{r fig.width=8, fig.height=10, fig.align='center',eval=T}
+```r
 centralityPlot(GGM = list(unregularized = Graph_pcor, regularized = Graph_lasso))
 ```
-<center><img src="/assets/images/network_files/unnamed-chunk-13-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-13-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 <hr>
 
@@ -344,7 +343,7 @@ To **interpret networks** , three values need to be known:
 
 ### Minimum, maximum and cut
 
-```{r fig.width=10, fig.height=6, fig.align='center',eval=T}
+```r
 qgraph(corMat, graph = "glasso", layout = "spring", tuning = 0.25,
                      sampleSize = nrow(Data2), minimum = 0,
                       cut = 0.15, maximum = 1, details = TRUE, 
@@ -353,11 +352,11 @@ qgraph(corMat, graph = "glasso", layout = "spring", tuning = 0.25,
 
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-14-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-14-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 ### Comparable Layouts
 
-```{r fig.width=10, fig.height=6, fig.align='center',eval=T}
+```r
 Layout <- averageLayout(Graph_pcor,Graph_lasso)
 layout(t(1:2))
 qgraph(corMat, graph = "pcor", layout = Layout, threshold = "bonferroni",
@@ -375,18 +374,18 @@ qgraph(corMat, graph = "glasso", layout = Layout, tuning = 0.25,
                       posCol = "#003399", negCol = "#FF9933",vTrans = 200, nodeNames = colnames(corMat), labels = names)
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-15-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-15-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 # Eigenvalue Decomposition
 
 Traditionally, we would want to describe the 32 items above in a latent variable framework, and the question arises: how many latent variables do we need to explain the covariance among the 32 items? A very easy way to do so is to look at the eigenvalues of the components in the data.
 
-```{r fig.width=10, fig.height=6, fig.align='center',eval=T}
+```r
 plot(eigen(corMat)$values, type="b",ylab ="Eigen Value" )
 abline(h=1,col="red", lty = 3)
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-16-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-16-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 This shows us the value of each eigenvalue of each components on the y-axis; the x-axis shows the different components. A high eigenvalue means that it explains a lot of the covariance among the items. The red line depicts the so-called Kaiser criterion: a simple rule to decide how many components we need to describe the covariance among items sufficiently (every components with an eigenvalue > 1).
 
@@ -413,7 +412,7 @@ This shows us the value of each eigenvalue of each components on the y-axis; the
 
 This method is the so-called spinglass algorithm that is very well established in network science. For that, we feed the network we estimated above to the `igraph R-package`. The most relevant part is the last line `sgc$membership`.
 
-```{r}
+```r
 g = as.igraph(Graph_lasso, attributes=TRUE)
 sgc <- spinglass.community(g)
 sgc$membership
@@ -423,7 +422,7 @@ This means the spinglass algorithm detects 5 communities, and this vector repres
 
 We can then easily plot these communities in qgraph by, for instance, coloring the nodes accordingly. Note that iqgraph is a fantastically versatile package that has numerous other possibilites for community detection apart from the spinglass algorithm, such as the walktrap algorithm. (Thanks to Alex Millner for his input regarding igraph; all mistakes here are my mistakes nonetheless, of course).
 
-```{r fig.width=10, fig.height=6, fig.align='center',eval=T}
+```r
 group.spinglass<- list(c(1,3,8,12,13,15), c(9,10,14), c(19,20,23,24,25,26,27,30,31,32), c(2,11,17,18,21,22,29), c(4,5,6,7,16,28))
 Graph_lasso <- qgraph(corMat, graph = "glasso", layout = "spring", tuning = 0.25,
                      sampleSize = nrow(Data2), 
@@ -431,7 +430,7 @@ Graph_lasso <- qgraph(corMat, graph = "glasso", layout = "spring", tuning = 0.25
                       posCol = "#003399", negCol = "#FF9933",vTrans = 200,groups=group.spinglass,color=c("red", "orange", "white", "blue", "green"),nodeNames = colnames(corMat), labels = names)
 
 ```
-<center><img src="/assets/images/network_files/unnamed-chunk-18-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-18-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 ### Walktrap Community
 
@@ -440,7 +439,7 @@ Graph_lasso <- qgraph(corMat, graph = "glasso", layout = "spring", tuning = 0.25
 * Dense subgraphs of sparse graphs (communities), which appear in most real-world complex networks, play an important role in many contexts. Computing them however is generally expensive. We propose here a measure of similarities between vertices based on random walks which has several important advantages: it captures well the community structure in a network, it can be computed efficiently, and it can be used in an agglomerative algorithm to compute efficiently the community structure of a network. We propose such an algorithm, called Walktrap, which runs in time O(mn^2) and space O(n^2) in the worst case, and in time O(n^2log n) and space O(n^2) in most real-world cases (n and m are respectively the number of vertices and edges in the input graph). Extensive comparison tests show that our algorithm surpasses previously proposed ones concerning the quality of the obtained community structures and that it stands among the best ones concerning the running time.
 
 
-```{r fig.width=10, fig.height=10, fig.align='center',eval=T}
+```r
 plot(
     cluster_walktrap(iGraph_pcor), 
     as.undirected(iGraph_pcor), 
@@ -449,13 +448,13 @@ plot(
   )
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-19-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-19-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 # Replicability
 
 We all know that all our work should be replicable, especially outputs, but exactly how replicable does something need to be? 
 
-```{r}
+```r
 #Data preparation
 
 ### Obtain two different datasets:
@@ -467,15 +466,15 @@ network1 <- estimateNetwork(data1, default="EBICglasso")
 network2 <- estimateNetwork(data2, default="EBICglasso")
 ```
 
-```{r}
+```r
 layout(t(1:2))
 graph1 <- plot(network1, cut=0)
 graph2 <- plot(network2, cut=0)
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-21-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-21-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
-```{r}
+```r
 ### similarity: statistical
 cor(network1$graph[lower.tri(network1$graph)], network2$graph[lower.tri(network1$graph)], method="spearman")
 
@@ -489,7 +488,7 @@ cor(centrality(network1)$InDegree, centrality(network2)$InDegree)
 * How self-determined is a system?
 * While centrality is a relative metric, predictablility is absolute
 
-```{r}
+```r
 #Data preparation
 
 for(i in 1:ncol(Data2)){
@@ -502,39 +501,39 @@ L1 <- averageLayout(corMat, corMat2)
 
 ```
 
-```{r results='hide'}
+```r
 #making model
 fit <- mgm(Data2, type=rep('g',32), level=rep(1,32), k=2, lambdaSel = 'EBIC', 
             lambdaGam = 0.25)
 ```
 
-```{r}
+```r
 #plotting
 fit_plot <- qgraph(fit$pairwise$wadj, cut=0, legend.cex = 0.35,
                     layout = L1, edge.color = fit$pairwise$edgecolor, nodeNames = colnames(corMat), labels = names )
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-25-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-25-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
-```{r}
+```r
 #predict
 pred_obj <- predict(object = fit, 
                     data = Data2, 
                     errorCon = 'R2')
 ```
 
-```{r}
+```r
 #error
 pred_obj$error
 ```
 
-```{r}
+```r
 #plotting with error in pie chart
 fit_plot2 <- qgraph(fit$pairwise$wadj, cut=0, pie = pred_obj$error[,2],legend.cex = .35,
                     layout = L1, edge.color = fit$pairwise$edgecolor, nodeNames = colnames(corMat), labels = names)
 ```
 
-<center><img src="/assets/images/network_files/unnamed-chunk-28-1.png" alt="types_of_graph" style="width: 500px;"/></center>
+<center><img src="/assets/images/network_files/unnamed-chunk-28-1.png" alt="types_of_graph" style="width: 700px;"/></center>
 
 # Appendix
 
