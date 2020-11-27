@@ -6,7 +6,10 @@ categories:
 tags:
   - Network Analysis
   - R
-excerpt: Network Analysis of Young People HOBBIES & INTERESTS
+excerpt: Network Analysis illustration with a real world example of Young People HOBBIES & INTERESTS
+toc: true
+toc_label: "Contents"
+toc_icon: "cog"
 ---
 
 ![Cover Page](https://www.publicdiplomacycouncil.org/wp-content/uploads/2018/07/IREX-sociogram.png)
@@ -549,4 +552,6 @@ fit_plot2 <- qgraph(fit$pairwise$wadj, cut=0, pie = pred_obj$error[,2],legend.ce
 
 [Replicability ](https://dimewiki.worldbank.org/wiki/Exporting_Analysis#Levels_of_Replicability_of_Exporting_Analysis)
 
+# Run In Notebook
 
+[Kaggle Notebook ](https://www.kaggle.com/ankur310794/network-analysis-of-hobbies-interests/)
