@@ -1,5 +1,5 @@
 ---
-title: "Detailed Analysis: Startups vs Mid/Large Size Company"
+title: "The Detailed Analysis: Startups vs Established Company"
 last_modified_at: 2021-01-24T21:30:02-05:00
 categories:
   - Blogs
@@ -54,10 +54,9 @@ After first look of the Kaggle survey 2020 dataset, I was curious to know that, 
 
     Q20: What is the size of the company where you are employed?
 
-### Problem Statement: How Startups are doing different from mid/large size company?
+**Problem Statement: How Startups are doing different from mid/large size company?**
 
 # Approach
-
 
 1.	**Data Preparation:** Started with making company_category column using response of Q20. The values of company_category are Startup, Mid-Size Company and Large Size Company.
 2.	**Modelling:** Made Classification model to classify company_category which will be used as feature selection with the use of model feature_importance and break_down approach.
