@@ -86,24 +86,6 @@ footer:
       url: "https://instagram.com/myself.ankur"
 
 defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
-  # _pages
-  - scope:
-      path: "_pages"
-      type: pages
-    values:
-      layout: single
-      author_profile: true
   # _ml_code_gists
   - scope:
       path: ""
@@ -115,6 +97,14 @@ defaults:
       comments: true
       share: true
       related: true
+
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
 
 category_archive:
   type: liquid
