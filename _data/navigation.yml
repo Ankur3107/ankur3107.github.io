@@ -5,7 +5,7 @@ main:
     url: /categories/
   - title: "Tags"
     url: /tags/
-  - title: "Timeline"
-    url: /timeline/
+  - title: "ML Code Gists"
+    url: /ml_code_gists/
   - title: "About"
     url: /me/

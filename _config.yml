@@ -104,6 +104,17 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # _ml_code_gists
+  - scope:
+      path: "_ml_code_gists"
+      type: ml_code_gists
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
 
 category_archive:
   type: liquid
