@@ -106,7 +106,7 @@ defaults:
       author_profile: true
   # _ml_code_gists
   - scope:
-      path: "_ml_code_gists"
+      path: ""
       type: ml_code_gists
     values:
       layout: single
