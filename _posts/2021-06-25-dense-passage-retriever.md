@@ -79,9 +79,9 @@ model_config = ModelConfig()
 
 # Load and Preprocess Dataset
 
+<center><img src="/assets/images/dpr/training-data.jpeg" alt="training-data" style="width: 700px;"/></center>
+
 ```python
-
-
 def read_dpr_json(
     file,
     max_samples=None,
@@ -212,10 +212,11 @@ def encode_query_passage(tokenizer, dicts, model_config, data_config):
 
 
 X = encode_query_passage(tokenizer, dicts, model_config, data_config)
-
 ```
 
 # Model Preparation
+
+<center><img src="/assets/images/dpr/model-architechture.jpeg" alt="Bi-Model-Architechture" style="width: 700px;"/></center>
 
 ```python
 class QueryModel(tf.keras.Model):
@@ -356,6 +357,8 @@ class BiEncoderModel(tf.keras.Model):
 ```
 
 # Model Building and Training
+
+<center><img src="/assets/images/dpr/dpr-tpu-training.jpeg" alt="Bi-Model-Training-TPU" style="width: 700px;"/></center>
 
 ```python
 BATCH_SIZE_PER_REPLICA = model_config.batch_size_per_replica
