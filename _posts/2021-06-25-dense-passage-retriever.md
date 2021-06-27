@@ -14,7 +14,7 @@ toc_icon: "cog"
 
 # Introduction
 Open-domain question answering relies on efficient passage retrieval to select 
-candidatecontexts, where traditional sparse vector spacemodels, such as TF-IDF 
+candidate contexts, where traditional sparse vector space models, such as TF-IDF 
 or BM25, are the defacto method.
 We can implement using dense representations, where embeddings are learned from 
 a small number of questions and passages by a simple dual-encoder framework.
@@ -52,6 +52,11 @@ gunzip biencoder-nq-dev.json.gz
 
 # Data & Model Configuration Setup
 
+Let's configure data and model requirements. Given we have positive passages and 
+hard negative passages for each query. So we need to select no of positives and hard negatives need to build good representation.
+
+For Model requirements, we need to specify things like seq_len for passage and query, pretrained base models, learning rate, epochs etc.
+
 ```python
 # Configure dataset
 @dataclass
@@ -80,7 +85,12 @@ model_config = ModelConfig()
 
 # Load and Preprocess Dataset
 
+Now, load training data and reture dict which has query and set of passages (positive n hard negatives). For the simplicity of target labels, in the passage list, place first positive passage followed by hard negative passages.
+
 <center><img src="/assets/images/dpr/training-data.jpeg" alt="training-data" style="width: 700px;"/></center>
+
+
+Then, tokenize and encode passages and queries. After encoding passage-queries dict keys shape will be like, for query: (no_of_sample, query_seq_len) and for passage: (no_of_sample, num_of_passages, seq_len) 
 
 ```python
 def read_dpr_json(
@@ -229,6 +239,8 @@ X = encode_query_passage(tokenizer, dicts, model_config, data_config)
 ```
 
 # Model Preparation
+
+Now prepare Bi-Encoder model using pre-trained base models i.e. bert-base-uncased. You have selected different models for passage and query models, but here we are using same model base for both single models.
 
 <center><img src="/assets/images/dpr/model-architechture.jpeg" alt="Bi-Model-Architechture" style="width: 700px;"/></center>
 
@@ -398,7 +410,13 @@ class BiEncoderModel(tf.keras.Model):
 
 # Model Building and Training
 
-<center><img src="/assets/images/dpr/dpr-tpu-training.jpeg" alt="Bi-Model-Training-TPU" style="width: 700px;"/></center>
+Model training will be the interesting part of whole DPR model, because in this bi-encoder model training we use In-Batch softmax loss function. What is In-Batch softmax loss? 
+
+In general, a given distributed env training, each pod or node has a model copy with them. The global batch size data equaly splited into no of pods or nodes and each pod or node call forward pass and calculates loss seperatly and after that it just aggregates each loss by some reduction methods (i.e. mean or sum), and then will be the final loss which goes to each copy of models on the pod or node.
+
+But in In-Batch Loss method, loss calculated by concat values of each pod or node final output logits. We can see this in the below image.
+
+<center><img src="/assets/images/dpr/dpr-tpu-training-v2.jpeg" alt="Bi-Model-Training-TPU" style="width: 700px;"/></center>
 
 ```python
 BATCH_SIZE_PER_REPLICA = model_config.batch_size_per_replica
@@ -439,6 +457,14 @@ bi_model.fit(train_ds, epochs=N_EPOCHS)
 ```
 
 # Model Evaluation
+
+Now after training its time to evaluate model on the dev dataset. We first preprocess the data into queries, passages and answer index. 
+
+Queries will pass into query encoder to get query embeddings and Passages will pass into passage encoder to get passage embeddings.
+
+Passage embedding will then stored into faiss for similarity matching.
+
+For each query embedding will pass into faiss.search to get the top-k index and then we will calculate the top-k acc.
 
 ```python
 # Read dev json for evaluation
