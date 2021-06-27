@@ -52,10 +52,10 @@ gunzip biencoder-nq-dev.json.gz
 
 # Data & Model Configuration Setup
 
-Let's configure data and model requirements. Given we have positive passages and 
+Let's configure data and model requirements. Given we have positive passages and
 hard negative passages for each query. So we need to select no of positives and hard negatives need to build good representation.
 
-For Model requirements, we need to specify things like seq_len for passage and query, pretrained base models, learning rate, epochs etc.
+For Model requirements, we need to specify things like seq_len for passage and query, pre-trained base models, learning rate, epochs, etc.
 
 ```python
 # Configure dataset
@@ -85,7 +85,7 @@ model_config = ModelConfig()
 
 # Load and Preprocess Dataset
 
-Now, load training data and return dict which has query and set of passages (positive n hard negatives). For the simplicity of target labels, in the passage list, place first positive passage followed by hard negative passages.
+Now, load training data and return dict which has a query and set of passages (positive n hard negatives). For the simplicity of target labels, in the passage list, place the first positive passage followed by hard negative passages.
 
 <center><img src="/assets/images/dpr/training-data.jpeg" alt="training-data" style="width: 700px;"/></center>
 
@@ -240,7 +240,7 @@ X = encode_query_passage(tokenizer, dicts, model_config, data_config)
 
 # Model Preparation
 
-Now prepare Bi-Encoder model using pre-trained base models i.e. bert-base-uncased. We can select different models for passage and query models, but here we are using same model base for both passage n query models.
+Now prepare Bi-Encoder model using pre-trained base models i.e. bert-base-uncased. We can select different models for passage and query models, but here we are using the same model base for both passage n query models.
 
 <center><img src="/assets/images/dpr/model-architechture.jpeg" alt="Bi-Model-Architechture" style="width: 700px;"/></center>
 
@@ -410,11 +410,11 @@ class BiEncoderModel(tf.keras.Model):
 
 # Model Building and Training
 
-Model training will be the interesting part of whole DPR model, because in this bi-encoder model training we use In-Batch softmax loss function. What is In-Batch softmax loss? 
+Model training will be the interesting part of the whole DPR model because in this bi-encoder model training we use the In-Batch softmax loss function. What is In-Batch softmax loss?
 
-In general, a given distributed env training, each pod or node has a model copy with them. The global batch size data equally splited into no of pods or nodes and each pod or node call forward pass and calculates loss seperatly and after that it just aggregates each loss by some reduction methods (i.e. mean or sum), and that will be the final loss of one global-batch, this goes to each copy of models on the pod or node and the graident updatation happens.
+In general, given distributed env training, each pod or node has a model copy with them. The global batch size data equally split into no of pods or nodes and each pod or node call forward pass and calculates loss separately and after that, it just aggregates each loss by some reduction methods (i.e. mean or sum), and that will be the final loss of one global-batch, this goes to each copy of models on the pod or node and the gradient update happens.
 
-But in In-Batch Loss method, loss calculated by concat values of each pod or node final output logits. We can see this in the below image.
+But in the In-Batch Loss method, loss calculated by concatenation values of each pod or node final output logits. We can see this in the below image.
 
 <center><img src="/assets/images/dpr/dpr-tpu-training-v2.jpeg" alt="Bi-Model-Training-TPU" style="width: 700px;"/></center>
 
@@ -458,13 +458,13 @@ bi_model.fit(train_ds, epochs=N_EPOCHS)
 
 # Model Evaluation
 
-Now after training its time to evaluate model on the dev dataset. We first preprocess the data into queries, passages and answer index. 
+Now after training it's time to evaluate the model on the dev dataset. We first preprocess the data into queries, passages, and answer indexes.
 
 Queries will pass into query encoder to get query embeddings and Passages will pass into passage encoder to get passage embeddings.
 
 Passage embedding will then stored into faiss for similarity matching.
 
-For each query embedding will pass into faiss.search to get the top-k index and then we will calculate the top-k acc.
+For each query, embedding will pass into faiss.search to get the top-k index and then we will calculate the top-k acc.
 
 ```python
 # Read dev json for evaluation
