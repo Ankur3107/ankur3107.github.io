@@ -85,7 +85,7 @@ model_config = ModelConfig()
 
 # Load and Preprocess Dataset
 
-Now, load training data and reture dict which has query and set of passages (positive n hard negatives). For the simplicity of target labels, in the passage list, place first positive passage followed by hard negative passages.
+Now, load training data and return dict which has query and set of passages (positive n hard negatives). For the simplicity of target labels, in the passage list, place first positive passage followed by hard negative passages.
 
 <center><img src="/assets/images/dpr/training-data.jpeg" alt="training-data" style="width: 700px;"/></center>
 
@@ -240,7 +240,7 @@ X = encode_query_passage(tokenizer, dicts, model_config, data_config)
 
 # Model Preparation
 
-Now prepare Bi-Encoder model using pre-trained base models i.e. bert-base-uncased. You have selected different models for passage and query models, but here we are using same model base for both single models.
+Now prepare Bi-Encoder model using pre-trained base models i.e. bert-base-uncased. We can select different models for passage and query models, but here we are using same model base for both passage n query models.
 
 <center><img src="/assets/images/dpr/model-architechture.jpeg" alt="Bi-Model-Architechture" style="width: 700px;"/></center>
 
@@ -412,7 +412,7 @@ class BiEncoderModel(tf.keras.Model):
 
 Model training will be the interesting part of whole DPR model, because in this bi-encoder model training we use In-Batch softmax loss function. What is In-Batch softmax loss? 
 
-In general, a given distributed env training, each pod or node has a model copy with them. The global batch size data equaly splited into no of pods or nodes and each pod or node call forward pass and calculates loss seperatly and after that it just aggregates each loss by some reduction methods (i.e. mean or sum), and then will be the final loss which goes to each copy of models on the pod or node.
+In general, a given distributed env training, each pod or node has a model copy with them. The global batch size data equally splited into no of pods or nodes and each pod or node call forward pass and calculates loss seperatly and after that it just aggregates each loss by some reduction methods (i.e. mean or sum), and that will be the final loss of one global-batch, this goes to each copy of models on the pod or node and the graident updatation happens.
 
 But in In-Batch Loss method, loss calculated by concat values of each pod or node final output logits. We can see this in the below image.
 
