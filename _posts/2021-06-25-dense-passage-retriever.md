@@ -620,3 +620,18 @@ results = pd.DataFrame(
 results["accuracy"] = (results["correct_total"] / results["total"]) * 100
 print(results)
 ```
+# References
+
+    DPR Paper: https://arxiv.org/pdf/2004.04906.pdf
+    Blog: https://ankur3107.github.io/blogs/dense-passage-retriever/
+
+# Cited as
+
+    @article{kumar2021dprtpu,
+    title   = "The Illustrated Dense Passage Retreiver on TPU",
+    author  = "Kumar, Ankur",
+    journal = "ankur3107.github.io",
+    year    = "2021",
+    url     = "https://ankur3107.github.io/blogs/dense-passage-retriever/"
+    }
+
