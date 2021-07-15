@@ -1,12 +1,12 @@
 ---
-title: "The Illustrated Dense Passage Retreiver"
+title: "The Illustrated Dense Passage retriever"
 last_modified_at: 2021-06-25T21:30:02-05:00
 categories:
   - Blogs
 tags:
   - open-domain-qa
   - tpu
-excerpt: Dense Passage Retreiver Explanation with implementation from scratch using TPU
+excerpt: Dense Passage Retriever Explanation with implementation from scratch using TPU
 toc: true
 toc_label: "Contents"
 toc_icon: "cog"
