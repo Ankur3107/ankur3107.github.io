@@ -14,6 +14,8 @@ toc_icon: "cog"
 ---
 
 ![Cover Page](/assets/images/SQuAD_Result.png)
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2118670497450280"
+     crossorigin="anonymous"></script>
 
 # What is SQuAD
 

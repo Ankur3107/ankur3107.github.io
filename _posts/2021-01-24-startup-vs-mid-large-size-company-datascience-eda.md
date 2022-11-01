@@ -14,6 +14,9 @@ toc_icon: "cog"
 
 ![Banner](https://miro.medium.com/max/3000/1*NARFfXvPHDwwMs_sai_DOw.jpeg)
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2118670497450280"
+     crossorigin="anonymous"></script>
+
 You can’t force corporate rules on a startup — or vice versa. Size and complexity affect the basic methodologies used to develop ideas and create revenues, and it is dangerous to ignore the differences.
 
 Smaller companies are organized in a way that stimulates experimentation and risk-taking, while large and complex enterprises are incentivized to maintain the status quo by any means necessary.

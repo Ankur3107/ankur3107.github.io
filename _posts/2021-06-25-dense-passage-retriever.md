@@ -20,6 +20,8 @@ We can implement using dense representations, where embeddings are learned from
 a small number of questions and passages by a simple dual-encoder framework.
 
 Original Paper [link](https://arxiv.org/pdf/2004.04906.pdf)
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2118670497450280"
+     crossorigin="anonymous"></script>
 
 # Setup
 Install `transformers`, `faiss-cpu` via `pip install -q transformers faiss-cpu``.

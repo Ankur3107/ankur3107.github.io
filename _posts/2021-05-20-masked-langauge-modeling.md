@@ -30,6 +30,9 @@ supervised NLP tasks.
 
 You can also checkout on keras website with some modifications. [masked_language_modeling](https://keras.io/examples/nlp/masked_language_modeling/)
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2118670497450280"
+     crossorigin="anonymous"></script>
+
 # Setup
 
 Install HuggingFace transformers via pip install transformers (version >= 3.1.0).

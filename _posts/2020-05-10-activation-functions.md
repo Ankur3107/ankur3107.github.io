@@ -13,6 +13,9 @@ toc_icon: "cog"
 
 ![Cover Page](https://missinglink.ai/wp-content/uploads/2018/11/activationfunction-1.png)
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2118670497450280"
+     crossorigin="anonymous"></script>
+
 # GELU (Gaussian Error Linear Unit)
 
 ![Cover Page](/assets/images/gelu.png)

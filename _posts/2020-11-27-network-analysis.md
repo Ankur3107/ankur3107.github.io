@@ -13,6 +13,8 @@ toc_icon: "cog"
 ---
 
 ![Cover Page](https://www.publicdiplomacycouncil.org/wp-content/uploads/2018/07/IREX-sociogram.png)
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2118670497450280"
+     crossorigin="anonymous"></script>
 
 ```r
 knitr::opts_chunk$set(echo = TRUE,message=FALSE,warning=FALSE)

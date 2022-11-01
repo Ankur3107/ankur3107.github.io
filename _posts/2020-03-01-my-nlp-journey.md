@@ -10,6 +10,9 @@ excerpt: Knowing is not enough; we must apply. Willing is not enough; we must do
 
 ![Cover Page](/assets/images/collage.jpg)
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2118670497450280"
+     crossorigin="anonymous"></script>
+
 *Knowing is not enough; we must apply. Willing is not enough; we must do.*
 
 **June'17:** Started my professional life as Developer and Data Analyst. 
