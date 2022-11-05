@@ -18,7 +18,7 @@ toc_icon: "cog"
 When Apple has introduced ARM M1 series with unified GPU, I was very excited to use GPU for trying DL stuffs. I usually use Colab and Kaggle for my general training and exploration. Now this is right time to use M1 GPU as huggingface has also introduced mps device support ([mac m1 mps integration](https://github.com/huggingface/transformers/pull/18598)).
 This enables users to leverage Apple M1 GPUs via mps device type in PyTorch for faster training and inference than CPU.
 
-With M1 Macbook pro 2020 8-core GPU, I was able to get 2-3x improvement in the training time, compare to M1 CPU training on the same device. 
+With M1 Macbook pro 2020 8-core GPU, I was able to get 1.5-2x improvement in the training time, compare to M1 CPU training on the same device. 
 
 
 ![Training Pic](https://raw.githubusercontent.com/Ankur3107/transformers-on-macbook-m1-gpu/main/training_pic.png)
@@ -72,6 +72,10 @@ print(torch.backends.mps.is_built())
     $ sh run.sh
 
 # Benchmark
+
+![Benchmark Pic](https://raw.githubusercontent.com/Ankur3107/transformers-on-macbook-m1-gpu/main/benchmark_pic.png)
+
+For more benchmarks:
 
 [sebastianraschka](https://sebastianraschka.com/blog/2022/pytorch-m1-gpu.html) has written a beautiful blog and benchmarked different M1 based systems on training and inferencing VGG16. Please do check.
 

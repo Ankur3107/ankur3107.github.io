@@ -107,6 +107,8 @@ data = pd.read_csv("imdb_tr.csv", encoding="ISO-8859-1")
 
 # Prepare Masked Language Dataset
 
+![Masking Pic](https://www.researchgate.net/publication/337187647/figure/fig2/AS:824406486040589@1573565231490/Model-structure-of-the-label-masked-language-model-N-MASK-is-a-mask-token-containing.png)
+
 ```python
 def regular_encode(texts, tokenizer, maxlen=512):
     enc_di = tokenizer.batch_encode_plus(
@@ -160,6 +162,8 @@ X_train_mlm, y_train_mlm = prepare_mlm_input_and_labels(X_train_mlm)
 ```
 
 # Create MaskedLanguageModel using huggingface transformers
+
+![Model Pic](https://camo.githubusercontent.com/cea8a8cf7ce71e2fb8537d93ad4849ad95e9baec3ff1b1c47760910846668e7d/68747470733a2f2f70656c746172696f6e2e636f6d2f7374617469632f626572745f656e636f6465725f626c6f636b2e737667)
 
 ```python
 def masked_sparse_categorical_crossentropy(y_true, y_pred):
@@ -226,6 +230,8 @@ bert_model.save_pretrained("imdb_bert_uncased")
 ```
 
 # Load and Test
+
+<center><img src="/assets/images/mlm_inference_output.png" alt="training-data" style="width: 700px;"/></center>
 
 ```python
 imdb_bert_model = TFAutoModelWithLMHead.from_pretrained("imdb_bert_uncased")
