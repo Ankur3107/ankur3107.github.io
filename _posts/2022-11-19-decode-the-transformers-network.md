@@ -817,7 +817,7 @@ loss
 4. https://github.com/huggingface/transformers
 
 # 6. Cited as
-    @article{kumar2021decodetransformers,
+    @article{kumar2022decodetransformers,
     title   = "Decode the transformers network",
     author  = "Kumar, Ankur",
     journal = "ankur3107.github.io",
