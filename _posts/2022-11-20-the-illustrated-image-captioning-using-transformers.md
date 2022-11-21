@@ -24,6 +24,8 @@ The popular benchmarking dataset which has images and its caption are:
 Try trained model: https://huggingface.co/nlpconnect/vit-gpt2-image-captioning
 
 ![Image](/assets/images/image-captioning-example.png)
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2118670497450280"
+     crossorigin="anonymous"></script>
 
 # Vision Encoder Decoder Architecture
 ![Image](/assets/images/vision-encoder-decoder.png)
