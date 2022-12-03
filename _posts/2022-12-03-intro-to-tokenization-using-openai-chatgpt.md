@@ -22,44 +22,43 @@ ChatGPT, a new chatbot developed by OpenAI Inc. In this blog, I had tried to use
 # Natural Language Processing
 ![Image](https://d24hrkfl5wrd0k.cloudfront.net/uploads/2019/04/BLOG_NLP-FOR-ARTIFICIAL-INTELLIGENCE_72-1.jpg)
 
-```question
-Question to ChatGPT > What is natural language processing?
-```
+    Question to ChatGPT > What is natural language processing?
+
 Natural language processing (NLP) is a field of artificial intelligence that focuses on enabling computers to understand, interpret, and generate human language. NLP algorithms use techniques from computer science, linguistics, and psychology to analyze and understand natural language, and to enable computers to communicate with humans in a way that is natural and intuitive. NLP techniques are used in a wide range of applications, including language translation, sentiment analysis, summarization, and text generation. These techniques are critical for enabling computers to process and understand the vast amounts of natural language data that is generated and shared every day.
 
 # Introduction to Tokenization
 ![Image](https://miro.medium.com/max/1400/1*PZYP2nL6Zc_jpkaHLRxLQQ.png)
 
-```question
-Question to ChatGPT > What is tokenization?
-```
+
+    Question to ChatGPT > What is tokenization?
+
 Tokenization is the process of breaking up a sequence of strings into smaller pieces called tokens. These tokens can be individual words, phrases, or subwords, depending on the specific algorithm being used. Tokenization is a critical step in natural language processing (NLP) because it allows the input text to be represented in a way that is more manageable and easier to process. By breaking the text up into smaller, discrete units, NLP algorithms can more easily analyze and understand the underlying structure and meaning of the text. Tokenization is often used in combination with other NLP techniques, such as word embedding and part-of-speech tagging, to improve the performance of natural language processing models.
 
 # Need of Tokenization in NLP
-```question
-Question to ChatGPT > Why do we need tokenization?
-```
+
+    Question to ChatGPT > Why do we need tokenization?
+
 Tokenization is an important step in natural language processing (NLP) because it allows the input text to be represented in a way that is more manageable and easier to process. By breaking the text up into smaller, discrete units called tokens, NLP algorithms can more easily analyze and understand the underlying structure and meaning of the text. This is especially important for tasks such as language translation, sentiment analysis, and text generation, where the input text may be long and complex, and the NLP model needs to be able to accurately capture the meaning and structure of the text. Additionally, tokenization allows NLP algorithms to better handle out-of-vocabulary words, and to capture the meaning of words in context. Overall, tokenization is a crucial step in natural language processing, and it is necessary for enabling computers to understand and generate human language.
 
 # Why Tokenization is Hard
 ![Image](https://blog.floydhub.com/content/images/2020/02/tokenize.png)
-```question
-Question to ChatGPT > Why tokenization is hard?
-```
+
+    Question to ChatGPT > Why tokenization is hard?
+
 
 Tokenization can be a challenging task in natural language processing (NLP) because of the complexity and variability of human language. There are many different ways that words and phrases can be written, and the same word can have multiple meanings depending on the context in which it is used. This can make it difficult for NLP algorithms to accurately identify the boundaries between words and phrases, and to accurately capture the meaning of the text. Additionally, some languages, such as Chinese and Japanese, do not use explicit word boundaries, which can make tokenization even more challenging. Overall, while tokenization is a crucial step in NLP, it can be difficult to implement accurately and effectively due to the complexity and variability of human language.
 
 # Regex based Tokenization
-```question
-Question to ChatGPT > Can we use regex for tokenization?
-```
+
+    Question to ChatGPT > Can we use regex for tokenization?
+
 
 Regular expressions (regex) can be used for tokenization in natural language processing (NLP). Regex is a powerful tool for matching and extracting patterns from text, and it can be used to identify and split words and phrases in a given input. Regex can be especially useful for tokenization because it allows for flexibility and customization, and it can handle many of the complexities and variations of human language. However, regex is not always the best choice for tokenization, as it can be difficult to write and maintain complex regex patterns, and it may not be as efficient or effective as other tokenization techniques. Additionally, regex may not be able to handle some of the more challenging aspects of human language, such as context-dependent meaning and out-of-vocabulary words. Overall, while regex can be used for tokenization in NLP, it is important to carefully consider its strengths and limitations, and to choose the appropriate tokenization technique for the specific task at hand.
 
 # Advantages & Disadvantages of Regex Tokenization
-```question
-Question to ChatGPT > What is the advantages and disadvantages of regex tokenization?
-```
+
+    Question to ChatGPT > What are the advantages and disadvantages of regex tokenization?
+
 Regular expressions (regex) can be used for tokenization in natural language processing (NLP), and it has both advantages and disadvantages. Some advantages of using regex for tokenization include:
 
 * Flexibility: Regex allows for a high degree of flexibility and customization, and it can be tailored to match specific patterns and boundaries in the input text. This can be useful for handling the complexities and variations of human language.
@@ -76,9 +75,9 @@ Overall, while regex can be a useful tool for tokenization in NLP, it is importa
 
 # Kinds of Tokenization
 ![Image](https://miro.medium.com/max/1400/1*pj8KnjxgCszpDqJSS2741w.jpeg)
-```question
-Question to ChatGPT > What are the kinds of tokenization used in NLP?
-```
+
+    Question to ChatGPT > What are the kinds of tokenization used in NLP?
+
 There are several different approaches to tokenization in natural language processing (NLP), each with its own advantages and disadvantages. Some common types of tokenization include:
 
 * Word tokenization: This is the most common form of tokenization, and it involves splitting the input text into individual words or tokens. This is often done by using white space or punctuation to identify word boundaries, but more advanced techniques, such as part-of-speech tagging and named entity recognition, can also be used. Word tokenization is simple and effective, but it may not be able to handle some of the more challenging aspects of human language, such as compound words and idiomatic expressions.
@@ -91,9 +90,9 @@ Overall, there are many different approaches to tokenization in NLP, and the app
 
 # Subword Tokenization
 ![Image](https://www.thoughtvector.io/blog/subword-tokenization/subword-units.svg)
-```question
-Question to ChatGPT > Explain Subword tokenization with a simple example?
-```
+
+    Question to ChatGPT > Explain Subword tokenization with a simple example?
+
 
 Subword tokenization is a technique used in natural language processing (NLP) to break up words into smaller units called subwords or tokens. These tokens can be individual letters, syllables, or other units of meaning, depending on the specific algorithm being used. Subword tokenization is useful for handling out-of-vocabulary words and for capturing the meaning of words in context.
 
@@ -108,9 +107,9 @@ This is a simple example of how subword tokenization can be used to tokenize a s
 
 # Techniques of Subword Tokenization
 ![Image](https://blog.floydhub.com/content/images/2020/02/subword-probabilistic-tokenization.png)
-```question
-Question to ChatGPT > Explain different techniques in Subword tokenization?
-```
+
+    Question to ChatGPT > Explain different techniques in Subword tokenization?
+
 
 There are several different approaches to subword tokenization, each with its own advantages and disadvantages. Some common types of subword tokenization include:
 
@@ -122,9 +121,9 @@ There are several different approaches to subword tokenization, each with its ow
 
 # Byte-Pair Encoding
 ![Image](https://miro.medium.com/max/1400/1*9qP4VpCJR0BJHt-R3eV7xA.jpeg)
-```question
-Question to ChatGPT > Implement a Byte-Pair Encoding in python?
-```
+
+    Question to ChatGPT > Implement a Byte-Pair Encoding in python?
+
 To implement Byte-Pair Encoding (BPE) in Python, you can follow these steps:
 
 * Begin by importing the necessary libraries and defining the input text that will be tokenized. You will need to import the `re` library for regular expressions, and the `collections` library for counting the frequency of pairs of bytes.
@@ -147,7 +146,7 @@ subwords = ["T", "h", "e", "q", "u", "i", "c", "k", "b", "r"]
 
 # References
 
-1. https://chat.openai.com/chat
+1. https://openai.com/blog/chatgpt/
 2. https://thinkpalm.com/blogs/natural-language-processing-nlp-artificial-intelligence/
 3. https://medium.com/@utkarsh.kant/tokenization-a-complete-guide-3f2dd56c0682
 4. https://towardsdatascience.com/the-evolution-of-tokenization-in-nlp-byte-pair-encoding-in-nlp-d7621b9c1186
