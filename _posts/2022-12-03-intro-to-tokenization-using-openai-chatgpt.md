@@ -17,6 +17,9 @@ toc_icon: "cog"
 # OpenAI ChatGPT
 ![Image](/assets/images/chatgpt-ui.png)
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2118670497450280"
+     crossorigin="anonymous"></script>
+
 ChatGPT, a new chatbot developed by OpenAI Inc. In this blog, I had tried to use the knowledge of bot to understand tokenization in NLP. I asked several questions related to tokenization i.e. what is tokenization, why it is hard, what are the type of tokenization etc. and below are the answers given by bot.
 
 # Natural Language Processing
