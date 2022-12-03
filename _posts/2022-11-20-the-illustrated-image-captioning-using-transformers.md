@@ -347,12 +347,12 @@ trainer.train()
 
 
 
-    <div>
+<div>
 
-      <progress value='60' max='60' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      [60/60 05:39, Epoch 3/3]
-    </div>
-    <table border="1" class="dataframe">
+  <progress value='60' max='60' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  [60/60 05:39, Epoch 3/3]
+</div>
+<table border="1" class="dataframe">
   <thead>
  <tr style="text-align: left;">
       <th>Epoch</th>
