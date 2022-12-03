@@ -397,7 +397,7 @@ trainer.train()
       <td>13.500000</td>
     </tr>
   </tbody>
-</table><p>
+</table>
 
 
     ***** Running Evaluation *****
@@ -409,10 +409,10 @@ trainer.train()
     ***** Running Evaluation *****
       Num examples = 80
       Batch size = 4
-    
-    
+
+
     Training completed. Do not forget to share your model on huggingface.co/models =)
-    
+
 
     TrainOutput(global_step=60, training_loss=0.6188589096069336, metrics={'train_runtime': 344.1556, 'train_samples_per_second': 0.697, 'train_steps_per_second': 0.174, 'total_flos': 4.331133386883072e+16, 'train_loss': 0.6188589096069336, 'epoch': 3.0})
 
