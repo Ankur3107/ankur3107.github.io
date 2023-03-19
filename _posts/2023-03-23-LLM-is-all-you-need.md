@@ -106,5 +106,5 @@ The Large Language Model (LLM) is a type of machine learning model that processe
     author  = "Kumar, Ankur",
     journal = "ankur3107.github.io",
     year    = "2023",
-    url     = "https://ankur3107.github.io/blogs/LLM-is-all-you-need/"
+    url     = "https://ankur3107.github.io/blogs/llm-is-all-you-need/"
     }
