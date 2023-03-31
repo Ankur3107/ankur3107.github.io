@@ -254,7 +254,7 @@ print(prompt.get(chat_history=chat_history, question=question))
 
 
 ```python
-standalone_question = prompt.get(chat_history=chat_history, question=question)
+standalone_question = llm(prompt.get(chat_history=chat_history, question=question))
 standalone_question
 ```
 
